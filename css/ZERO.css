@@ -2,11 +2,11 @@
 /**=========================================
 ==============   全局   ===============
 ============================================**/
-* {margin: 0;padding: 0;border: 0;font: inherit;vertical-align: baseline;quotes: none;}
+/** {margin: 0;padding: 0;border: 0;font: inherit;vertical-align: baseline;quotes: none;}*/
 body{font-size:16px!important;}
 p,b,h1,h2,h3,h4,h5,h6,li,.p,.b,.h1,.h2,.h3,.h4,.h5,.h6 {color:var(--color-p);}
 button{outline:none;}
-a{color:var(--color-2);}
+a{color:var(--color-2);word-wrap:break-word;}
 a:focus,a:hover {color:var(--color-2);}
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {font-weight: bold;}
 h2,.h2{line-height:34px}
