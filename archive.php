@@ -1,5 +1,5 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
-<?php $this->need('header.php'); ?>
+<?php $this->need('min/header.php'); ?>
 
 <div class="col-mb-12 col-8" id="main" role="main">
     <h3 class="archive-title"><?php $this->archiveTitle([
@@ -41,5 +41,5 @@
     <?php $this->pageNav('&laquo; 前一页', '后一页 &raquo;'); ?>
 </div><!-- end #main -->
 
-<?php $this->need('sidebar.php'); ?>
-<?php $this->need('footer.php'); ?>
+<?php $this->need('min/sidebar.php'); ?>
+<?php $this->need('min/footer.php'); ?>
