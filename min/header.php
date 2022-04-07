@@ -16,7 +16,8 @@
     <link rel="stylesheet" href="<?php $this->options->themeUrl('css/normalize.css'); ?>">
     <link rel="stylesheet" href="<?php $this->options->themeUrl('css/grid.css'); ?>">
     <link rel="stylesheet" href="<?php $this->options->themeUrl('css/style.css'); ?>">
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('css/bulma.min.css'); ?>">
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('css/bootstrap.min.css'); ?>">
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('css/fontawesome.min.css'); ?>">
     <!-- 通过自有函数输出HTML头部信息 -->
     <?php $this->header(); ?>
 </head>
