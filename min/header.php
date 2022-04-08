@@ -13,11 +13,11 @@
         ], '', ' - '); ?><?php $this->options->title(); ?></title>
 
     <!-- 使用url函数转换相关路径 -->
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('css/normalize.css'); ?>">
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('css/grid.css'); ?>">
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('css/style.css'); ?>">
+    <!--<link rel="stylesheet" href="<?php $this->options->themeUrl('css/normalize.css'); ?>">-->
+    <!--<link rel="stylesheet" href="<?php $this->options->themeUrl('css/grid.css'); ?>">-->
+    <!--<link rel="stylesheet" href="<?php $this->options->themeUrl('css/style.css'); ?>">-->
     <link rel="stylesheet" href="<?php $this->options->themeUrl('css/bootstrap.min.css'); ?>">
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('css/fontawesome.min.css'); ?>">
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('css/fontawesome-6.1.1/css/all.min.css'); ?>">
     <!-- 通过自有函数输出HTML头部信息 -->
     <?php $this->header(); ?>
 </head>
