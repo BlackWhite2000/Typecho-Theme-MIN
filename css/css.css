@@ -1,0 +1,2 @@
+/*悬停显示下拉菜单*/
+.nav > li:hover .dropdown-menu{display: block;}
