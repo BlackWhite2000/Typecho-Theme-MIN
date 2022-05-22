@@ -1,2 +1,9 @@
 /*悬停显示下拉菜单*/
 .nav > li:hover .dropdown-menu{display: block;}
+
+.bg-overlay {
+    width: 100%;
+    height: 100%;
+    background-color: #1e1e1e;
+}
+
