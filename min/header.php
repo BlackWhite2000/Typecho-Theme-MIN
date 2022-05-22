@@ -21,7 +21,7 @@
     <?php $this->header(); ?>
 </head>
 
-<body>
+<body class="bg-overlay" style='background-image: url(<?php $this->options->themeUrl('/img/overlay.png'); ?>)'>
 
     <header id="header" class="clearfix">
         <div class="container">
@@ -98,5 +98,5 @@
         </div>
     </header><!-- end #header -->
     <div id="body">
-        <div class="container">
+        <div class="container-xl">
             <div class="row">

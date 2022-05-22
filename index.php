@@ -20,8 +20,8 @@ $this->need('min/header.php');
     <!--最新文章-->
     <div class="col">
         <figure class="mb-0 lead">
-            <blockquote class="blockquote ">
-                <h4 class="">最新文章</h4>
+            <blockquote class="blockquote text-white text-opacity-75">
+                <h4>最新文章</h4>
             </blockquote>
             <figcaption class="blockquote-footer mb-0">
                 NEW
@@ -30,11 +30,14 @@ $this->need('min/header.php');
     <!--分页-->
     <div class="col text-end">
         <figure class="mb-0 lead">
-            <blockquote class="blockquote ">
+            <blockquote class="blockquote text-white text-opacity-25">
                 分页
             </blockquote>
-            <figcaption class="blockquote-footer mb-0">
-                <?php $this->pageLink('<i class="fa fa-angle-double-left"></i>'); ?> <?php if ($this->_currentPage > 1) echo $this->_currentPage; else echo 1; ?> / <?php echo ceil($this->getTotal() / $this->parameter->pageSize); ?> <?php $this->pageLink('<i class="fa fa-angle-double-right"></i>', 'next'); ?>
+            <figcaption class="blockquote-footer mb-0 text-white text-opacity-75">
+                <?php $this->pageLink('<i class="fa fa-angle-double-left"></i>'); ?>
+                <?php if ($this->_currentPage > 1) echo $this->_currentPage;
+                else echo 1; ?> / <?php echo ceil($this->getTotal() / $this->parameter->pageSize); ?>
+                <?php $this->pageLink('<i class="fa fa-angle-double-right"></i>', 'next'); ?>
             </figcaption>
     </div>
 </div>
@@ -42,23 +45,49 @@ $this->need('min/header.php');
 <!--end 标题-->
 
 <!--输出最新文章-->
-<div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 mt-0">
+<div class="row row-cols-1 row-cols-lg-4 g-2 g-lg-2 mt-0 " style="align-items: center;justify-content: center;">
     <?php while ($this->next()) : ?>
         <div class="col">
-            <div class="card ">
-                <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-                    <a itemprop="url" href="<?php $this->permalink() ?>"><img src="..." class="card-img-top" alt="..."></a>
+            <div class="card" style="background-color:#141414;">
+                <article class="post h-200px" itemscope itemtype="http://schema.org/BlogPosting">
+                    <?php if (($this->fields->banner) == '') : ?>
+                        <div class="card-body row ">
+                            <a itemprop="url" href="<?php $this->permalink() ?>">
+                                <div class="card-title fs-5 text-white "><?php $this->title() ?></div>
+                            </a>
+                        </div>
+                        <div class="card-body row">
+                            <small class="text-white text-opacity-50">
+                                <p class="card-text"><?php $this->content('- 阅读剩余部分 -'); ?></p>
+                                <div class="float-start"><?php $this->category(','); ?></div>
+                                <div class="float-end">
+                                    <?php $this->commentsNum('<i class="fa-solid fa-message"></i> 0', '<i class="fa-solid fa-message"></i> 1', '<i class="fa-solid fa-message"></i> %d'); ?>
+                                    <time datetime="<?php $this->date('c'); ?>" itemprop="datePublished" style="margin-left:5px;"><i class="fa-solid fa-clock"></i> <?php $this->date(); ?></time>
+                                </div>
+                            </small>
+                        </div>
+                        <!--end .card-body-->
+                    <?php else : ?>
 
-                    <div class="card-body">
-                        <h5 class="card-title"><?php $this->title() ?></h5>
-                        <p class="card-text"><?php $this->content('- 阅读剩余部分 -'); ?></p>
-                        <a itemprop="name" href="<?php $this->author->permalink(); ?>" rel="author"><?php $this->author(); ?></a><br>
-                        <time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><i class="fa-solid fa-clock"></i> <?php $this->date(); ?></time>
-                        <?php $this->category(','); ?>
-                        <a itemprop="discussionUrl" href="<?php $this->permalink() ?>#comments"><?php $this->commentsNum('评论', '1 条评论', '%d 条评论'); ?></a>
+                        <img src="<?php echo $this->fields->banner; ?>" class="card-img opacity-25" alt="banner">
 
-                    </div>
-                    <!--end .card-body-->
+
+                        <div class="card-img-overlay row" style="align-content: space-between;">
+
+                            <a itemprop="url" href="<?php $this->permalink() ?>">
+                                <div class="card-title fs-5 text-white"><?php $this->title() ?></div>
+                            </a>
+                            <small class="text-white text-opacity-50 ">
+                                <p class="card-text"><?php $this->content('- 阅读剩余部分 -'); ?></p>
+                                <div class="float-start"><?php $this->category(','); ?></div>
+                                <div class="float-end">
+                                    <?php $this->commentsNum('<i class="fa-solid fa-message"></i> 0', '<i class="fa-solid fa-message"></i> 1', '<i class="fa-solid fa-message"></i> %d'); ?>
+                                    <time datetime="<?php $this->date('c'); ?>" itemprop="datePublished" style="margin-left:5px;"><i class="fa-solid fa-clock"></i> <?php $this->date(); ?></time>
+                                </div>
+                            </small>
+                        </div>
+
+                    <?php endif; ?>
                 </article>
             </div>
             <!--end .card-->
