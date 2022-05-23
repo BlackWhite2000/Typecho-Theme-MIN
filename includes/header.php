@@ -14,28 +14,27 @@
             ], '', ' - '); ?><?php $this->options->title(); ?></title>
 
     <!-- 使用url函数转换相关路径 -->
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('css/css.css'); ?>">
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('css/bootstrap.min.css'); ?>">
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('css/fontawesome-6.1.1/css/all.min.css'); ?>">
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/main.css'); ?>">
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/fontawesome6/css/all.min.css'); ?>">
     <!-- 通过自有函数输出HTML头部信息 -->
     <?php $this->header(); ?>
 </head>
 
-<body class="bg-overlay" style='background-image: url(<?php $this->options->themeUrl('/img/overlay.png'); ?>)'>
+<body class="bg-[#1e1e1e]" style='background-image: url(<?php $this->options->themeUrl('assets/img/overlay.png'); ?>)'>
 
     <header id="header" class="clearfix">
-        <div class="container">
+        <div class="container mx-auto">
             <div class="row">
 
                 <!--标题-->
-                <figure class="text-center mt-5 mb-4">
-                    <blockquote class="blockquote">
+                <div class="text-center text-white">
+                    <blockquote class="text-4xl">
                         <h1><?php $this->options->title() ?></h1>
                     </blockquote>
-                    <figcaption class="blockquote-footer">
+                    <figcaption class="text-xl">
                         <h4><?php $this->options->description() ?></h4>
                     </figcaption>
-                </figure>
+        </div>
                 
                 <!--搜索-->
                 <form id="search" method="post" action="<?php $this->options->siteUrl(); ?>" role="search" class="nav justify-content-center">
@@ -46,17 +45,17 @@
                 </form>
 
                 <!--导航-->
-                <ul class="nav nav-pills justify-content-center mb-3">
+                <ul class="flex">
 
                     <!--首页-->
-                    <li class="nav-item">
+                    <li class="flex-1">
                         <a<?php if ($this->is('index')) : ?> class="nav-link" <?php endif; ?> href="<?php $this->options->siteUrl(); ?>"><?php _e('首页'); ?></a>
                     </li>
 
                     <!--独立页面-->
                     <?php \Widget\Contents\Page\Rows::alloc()->to($pages); ?>
                     <?php while ($pages->next()) : ?>
-                        <li class="nav-item">
+                        <li class="flex-1">
                             <a class="nav-link" <?php if ($this->is('page', $pages->slug)) : ?> <?php endif; ?> href="<?php $pages->permalink(); ?>" title="<?php $pages->title(); ?>"><?php $pages->title(); ?></a>
                         </li>
                     <?php endwhile; ?>
@@ -70,14 +69,14 @@
                             <?php if (empty($children)) { ?>
 
                                 <!--没有子类-->
-                                <li class="nav-item">
+                                <li class=flex-1">
                                     <a class="nav-link" <?php if ($this->is('page', $categorys->slug)) : ?> <?php endif; ?> href="<?php $categorys->permalink(); ?>" title="<?php $categorys->name(); ?>"><?php $categorys->name(); ?></a>
                                 </li>
 
                             <?php } else { ?>
 
                                 <!--拥有子类-->
-                                <li class="nav-item dropdown">
+                                <li class="flex-1">
                                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><?php $categorys->name(); ?></a>
                                     <ul class="dropdown-menu">
                                         <!--输出-->
@@ -98,5 +97,5 @@
         </div>
     </header><!-- end #header -->
     <div id="body">
-        <div class="container-xl">
+        <div class="container mx-auto">
             <div class="row">

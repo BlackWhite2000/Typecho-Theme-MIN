@@ -3,8 +3,6 @@
         </div><!-- end .row -->
     </div>
 </div><!-- end #body -->
-<script src="js/js.js" ></script>
-<script src="js/bootstrap.bundle.min.js" ></script>
 
 <footer id="footer" role="contentinfo" class="text-center mt-5">
     <p>Copyright &copy; <?php echo date('Y'); ?> <a class="mb-5" href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a></p>

@@ -1,0 +1,21 @@
+{
+  "name": "typecho-theme-min",
+  "version": "0.0.1",
+  "description": "一个自用主题",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gulp-sass": "gulp wch sass",
+    "build": "tailwindcss -i ./includes/main.css -o ./assets/css/main.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://jihulab.com/BlackWhite/Typecho-Theme-MIN.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "tailwindcss": "^3.0.24"
+  }
+}
