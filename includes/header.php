@@ -1,6 +1,6 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <!DOCTYPE HTML>
-<html>
+<html class="dark">
 
 <head>
     <meta charset="<?php $this->options->charset(); ?>">
@@ -12,52 +12,50 @@
                 'tag'      => _t('标签 %s 下的文章'),
                 'author'   => _t('%s 发布的文章')
             ], '', ' - '); ?><?php $this->options->title(); ?></title>
-
     <!-- 使用url函数转换相关路径 -->
     <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/main.css'); ?>">
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/style.css'); ?>">
     <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/fontawesome6/css/all.min.css'); ?>">
+
     <!-- 通过自有函数输出HTML头部信息 -->
     <?php $this->header(); ?>
 </head>
 
-<body class="bg-[#1e1e1e]" style='background-image: url(<?php $this->options->themeUrl('assets/img/overlay.png'); ?>)'>
+<body class="dark:bg-[#1e1e1e]" style='background-image: url(<?php $this->options->themeUrl('assets/img/overlay.png'); ?>)'>
 
-    <header id="header" class="clearfix">
+    <header>
         <div class="container mx-auto">
-            <div class="row">
 
                 <!--标题-->
-                <div class="text-center text-white">
-                    <blockquote class="text-4xl">
-                        <h1><?php $this->options->title() ?></h1>
-                    </blockquote>
-                    <figcaption class="text-xl">
-                        <h4><?php $this->options->description() ?></h4>
-                    </figcaption>
-        </div>
+                <div class="flex justify-center flex-col items-center mt-12 dark:text-white">
+                    <div class="text-5xl mb-2.5"> <?php $this->options->title() ?> </div>
+                    <div class="h-px w-4 dark:bg-[#7e7e7e]"></div>
+                    <div class="text-xl pt-2.5 tracking-wider dark:text-[#7e7e7e]"><?php $this->options->description() ?> </div>
+
                 
                 <!--搜索-->
-                <form id="search" method="post" action="<?php $this->options->siteUrl(); ?>" role="search" class="nav justify-content-center">
-                    <div class="form-floating mb-4 col-5">
-                        <input type="text" id="s" name="s" class="text form-control me-2 rounded-pill" placeholder="<?php _e('输入关键字搜索'); ?>" />
-                        <label for="floatingInput"><?php _e('输入关键字搜索'); ?></label>
-                    </div>
+                <form id="search" method="post" action="<?php $this->options->siteUrl(); ?>" role="search" class="w-1/3 mt-10">
+                
+                        <input type="text" id="s" name="s"  placeholder="<?php _e('输入关键字搜索'); ?>" class="rounded-full h-14 w-full pl-4 dark:bg-[#1e1e1e] dark:border-2 dark:border-[#282829]"/>
+          
                 </form>
 
                 <!--导航-->
-                <ul class="flex">
+                <ul class="flex flex-row mt-12">
 
                     <!--首页-->
-                    <li class="flex-1">
-                        <a<?php if ($this->is('index')) : ?> class="nav-link" <?php endif; ?> href="<?php $this->options->siteUrl(); ?>"><?php _e('首页'); ?></a>
+                    <li>
+                        <a<?php if ($this->is('index')) : ?> class="p-5" <?php endif; ?> href="<?php $this->options->siteUrl(); ?>"><?php _e('首页'); ?></a>
                     </li>
 
                     <!--独立页面-->
                     <?php \Widget\Contents\Page\Rows::alloc()->to($pages); ?>
                     <?php while ($pages->next()) : ?>
-                        <li class="flex-1">
-                            <a class="nav-link" <?php if ($this->is('page', $pages->slug)) : ?> <?php endif; ?> href="<?php $pages->permalink(); ?>" title="<?php $pages->title(); ?>"><?php $pages->title(); ?></a>
+
+                        <li>
+                            <a class="p-5" <?php if ($this->is('page', $pages->slug)) : ?> <?php endif; ?> href="<?php $pages->permalink(); ?>" title="<?php $pages->title(); ?>"><?php $pages->title(); ?></a>
                         </li>
+
                     <?php endwhile; ?>
 
                     <!--分类, 带下拉菜单-->
@@ -69,20 +67,20 @@
                             <?php if (empty($children)) { ?>
 
                                 <!--没有子类-->
-                                <li class=flex-1">
-                                    <a class="nav-link" <?php if ($this->is('page', $categorys->slug)) : ?> <?php endif; ?> href="<?php $categorys->permalink(); ?>" title="<?php $categorys->name(); ?>"><?php $categorys->name(); ?></a>
+                                <li>
+                                    <a class="p-5" <?php if ($this->is('page', $categorys->slug)) : ?> <?php endif; ?> href="<?php $categorys->permalink(); ?>" title="<?php $categorys->name(); ?>"><?php $categorys->name(); ?></a>
                                 </li>
 
                             <?php } else { ?>
 
                                 <!--拥有子类-->
-                                <li class="flex-1">
-                                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><?php $categorys->name(); ?></a>
-                                    <ul class="dropdown-menu">
+                                <li class="group">
+                                    <a class="p-5" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><?php $categorys->name(); ?></a>
+                                    <ul class="hidden group-hover:block" >
                                         <!--输出-->
                                         <?php foreach ($children as $mid) { ?>
                                             <?php $child = $categorys->getCategory($mid); ?>
-                                            <li><a class="dropdown-item" href="<?php echo $child['permalink'] ?>"><?php echo $child['name']; ?></a></li>
+                                            <li class="absolute m-3"><a class="py-3 px-5 hover:bg-[#3c3d3e]" href="<?php echo $child['permalink'] ?>"><?php echo $child['name']; ?></a></li>
                                         <?php } ?>
                                     </ul>
                                 </li>
