@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "gulp-sass": "gulp wch sass",
     "build": "tailwindcss -i ./includes/main.css -o ./assets/css/main.css --watch"
   },
   "repository": {
