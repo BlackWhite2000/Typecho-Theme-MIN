@@ -1,5 +1,9 @@
 a {
+  color: #3185ff;
   text-decoration: underline;
+}
+a :hover {
+  opacity: 0.8;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Default theme for Typecho
+ * 一个自用主题。
  *
  * @package typecho-theme-min
  * @author BlackWhite

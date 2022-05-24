@@ -15,7 +15,7 @@
     <!-- 使用url函数转换相关路径 -->
     <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/main.css'); ?>">
     <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/style.css'); ?>">
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/fontawesome6/css/all.min.css'); ?>">
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/fontawesome6/css/all.min.css'); ?>">
 
     <!-- 通过自有函数输出HTML头部信息 -->
     <?php $this->header(); ?>
@@ -45,7 +45,7 @@
 
                     <!--首页-->
                     <li>
-                        <a<?php if ($this->is('index')) : ?> class="p-5" <?php endif; ?> href="<?php $this->options->siteUrl(); ?>"><?php _e('首页'); ?></a>
+                        <a class="p-5 no-underline" href="<?php $this->options->siteUrl(); ?>"><?php _e('首页'); ?></a>
                     </li>
 
                     <!--独立页面-->
@@ -53,7 +53,7 @@
                     <?php while ($pages->next()) : ?>
 
                         <li>
-                            <a class="p-5" <?php if ($this->is('page', $pages->slug)) : ?> <?php endif; ?> href="<?php $pages->permalink(); ?>" title="<?php $pages->title(); ?>"><?php $pages->title(); ?></a>
+                            <a class="p-5 no-underline" <?php if ($this->is('page', $pages->slug)) : ?> <?php endif; ?> href="<?php $pages->permalink(); ?>" title="<?php $pages->title(); ?>"><?php $pages->title(); ?></a>
                         </li>
 
                     <?php endwhile; ?>
@@ -68,19 +68,19 @@
 
                                 <!--没有子类-->
                                 <li>
-                                    <a class="p-5" <?php if ($this->is('page', $categorys->slug)) : ?> <?php endif; ?> href="<?php $categorys->permalink(); ?>" title="<?php $categorys->name(); ?>"><?php $categorys->name(); ?></a>
+                                    <a class="p-5 no-underline" <?php if ($this->is('page', $categorys->slug)) : ?> <?php endif; ?> href="<?php $categorys->permalink(); ?>" title="<?php $categorys->name(); ?>"><?php $categorys->name(); ?></a>
                                 </li>
 
                             <?php } else { ?>
 
                                 <!--拥有子类-->
                                 <li class="group">
-                                    <a class="p-5" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><?php $categorys->name(); ?></a>
+                                    <a class="p-5 no-underline" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><?php $categorys->name(); ?> <i class="fa-solid fa-caret-down"></i></a>
                                     <ul class="hidden group-hover:block" >
                                         <!--输出-->
                                         <?php foreach ($children as $mid) { ?>
                                             <?php $child = $categorys->getCategory($mid); ?>
-                                            <li class="absolute m-3"><a class="py-3 px-5 hover:bg-[#3c3d3e]" href="<?php echo $child['permalink'] ?>"><?php echo $child['name']; ?></a></li>
+                                            <li class="absolute m-3"><a class="py-3 px-5 no-underline hover:bg-[#3c3d3e]" href="<?php echo $child['permalink'] ?>"><?php echo $child['name']; ?></a></li>
                                         <?php } ?>
                                     </ul>
                                 </li>
@@ -91,9 +91,8 @@
                 </ul>
                 <!--end .nav .nav-pills-->
 
-            </div><!-- end .row -->
         </div>
     </header><!-- end #header -->
-    <div id="body">
+    <div>
         <div class="container mx-auto">
-            <div class="row">
+      
