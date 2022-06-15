@@ -13,7 +13,7 @@
                 'author'   => _t('%s 发布的文章')
             ], '', ' - '); ?><?php $this->options->title(); ?></title>
     <!-- 使用url函数转换相关路径 -->
-    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://cdn.staticfile.org/vue/3.0.5/vue.global.js"></script>
     <link rel="stylesheet" href="<?php $this->options->themeUrl('dist/css/main.css'); ?>">
     <link rel="stylesheet" href="<?php $this->options->themeUrl('dist/css/style.css'); ?>">
 
