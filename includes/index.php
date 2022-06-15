@@ -5,17 +5,16 @@ $this->need('includes/header.php');
 <!--标题-->
 <div class="flex justify-between justify-items-center">
     <!--最新文章-->
-    <div>
-
+    <div id="new-posts">
         <div class="dark:text-white text-2xl">
-            <h4>最新文章</h4>
+           {{ postsZh }}
         </div>
         <div class="dark:text-[#999999] text-lg font-light">
-            —NEW
+        {{ postsEn }}
         </div>
 
     </div>
-
+  
     <!--分页-->
     <div>
         <div class="dark:text-[#999999] text-lg font-light text-right">
@@ -30,9 +29,7 @@ $this->need('includes/header.php');
     </div>
 
 </div>
-<div id="hello-vue" class="demo">
-  {{ message }}
-</div>
+
 <!--end 标题-->
 
 <!--输出最新文章-->
@@ -71,14 +68,16 @@ $this->need('includes/header.php');
 </div>
 
 <script>
-const HelloVueApp = {
+const newPosts = {
     data() {
       return {
-        message: 'Hello Vue!!'
+        postsZh: '最新文章',
+        postsEn: '-NEW',
       }
     }
   }
   
-  Vue.createApp(HelloVueApp).mount('#hello-vue')
+  Vue.createApp(newPosts).mount('#new-posts')
+
 </script>
 <?php $this->need('includes/footer.php'); ?>
