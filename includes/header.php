@@ -15,7 +15,6 @@
     <!-- 使用url函数转换相关路径 -->
     <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/main.css'); ?>">
     <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/style.css'); ?>">
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/fontawesome6/css/all.min.css'); ?>">
 
     <!-- 通过自有函数输出HTML头部信息 -->
     <?php $this->header(); ?>
@@ -75,7 +74,7 @@
 
                                 <!--拥有子类-->
                                 <li class="group">
-                                    <a class="p-5 no-underline" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><?php $categorys->name(); ?> <i class="fa-solid fa-caret-down"></i></a>
+                                    <a class="p-5 no-underline" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><?php $categorys->name(); ?> <span class="iconify inline -mx-2" data-icon="ic:baseline-arrow-drop-down" data-width="28"></span></a>
                                     <ul class="hidden group-hover:block" >
                                         <!--输出-->
                                         <?php foreach ($children as $mid) { ?>

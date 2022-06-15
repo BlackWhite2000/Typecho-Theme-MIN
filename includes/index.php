@@ -22,10 +22,10 @@ $this->need('includes/header.php');
             分页
         </div>
         <div class="dark:text-white text-lg text-right">
-            <?php $this->pageLink('<i class="fa fa-angle-double-left"></i>'); ?>
+            <?php $this->pageLink('<span class="iconify-inline inline" data-icon="ic:baseline-double-arrow" data-width="22" data-flip="horizontal"></span>'); ?>
             <?php if ($this->_currentPage > 1) echo $this->_currentPage;
             else echo 1; ?> / <?php echo ceil($this->getTotal() / $this->parameter->pageSize); ?>
-            <?php $this->pageLink('<i class="fa fa-angle-double-right"></i>', 'next'); ?>
+            <?php $this->pageLink('<span class="iconify-inline inline" data-icon="ic:baseline-double-arrow" data-width="22"></span>', 'next'); ?>
         </div>
     </div>
 
@@ -51,8 +51,8 @@ $this->need('includes/header.php');
                             <?php $this->category(','); ?>
                         </div>
                         <div>
-                            <?php $this->commentsNum('<i class="fa-solid fa-message"></i> 0', '<i class="fa-solid fa-message"></i> 1', '<i class="fa-solid fa-message"></i> %d'); ?>
-                            <time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><i class="fa-solid fa-clock ml-2"></i> <?php $this->date(); ?></time>
+                            <?php $this->commentsNum('<span class="iconify inline mb-0.5 mr-0.5" data-icon="uim:comment-alt"></span>0', '<span class="iconify inline mb-0.5 mr-0.5" data-icon="uim:comment-alt-message"></span>1', '<span class="iconify inline mb-0.5 mr-0.5" data-icon="uim:comment-alt-dots"></span>%d'); ?>
+                            <time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><span class="iconify inline mb-0.5 mr-0.5" data-icon="uim:clock-three"></span><?php $this->date(); ?></time>
                         </div>
 
                     </div>
