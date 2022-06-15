@@ -1,0 +1,18 @@
+
+// @forward 'element-plus/theme-chalk/src/common/var.scss' with (
+//   $colors: (
+//     'primary': (
+//       'base': green,
+//     ),
+//   ),
+// );
+// @import "../node_modules/vue/dist/vue.global.js";
+a{
+    :hover{
+        opacity: 0.8;
+        
+    }
+    color: #3185ff;
+    text-decoration: underline;
+
+}
