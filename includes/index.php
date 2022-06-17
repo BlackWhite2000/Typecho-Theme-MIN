@@ -67,6 +67,13 @@ $this->need('includes/header.php');
 
 </div>
 
+<div id="app">
+<el-button type="primary">Primary</el-button>
+    <el-button type="success">Success</el-button>
+    <el-button type="info">Info</el-button>
+  
+    </div>
+   
 <script>
 const newPosts = {
     data() {
@@ -78,6 +85,14 @@ const newPosts = {
   }
   
   Vue.createApp(newPosts).mount('#new-posts')
-
 </script>
+
+
+<script>
+  var App = {};
+  var app = Vue.createApp(App);
+  app.use(ElementPlus);
+  app.mount("#app");
+    </script>
+
 <?php $this->need('includes/footer.php'); ?>

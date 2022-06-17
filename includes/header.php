@@ -13,7 +13,9 @@
                 'author'   => _t('%s 发布的文章')
             ], '', ' - '); ?><?php $this->options->title(); ?></title>
     <!-- 使用url函数转换相关路径 -->
-    <script src="https://cdn.staticfile.org/vue/3.0.5/vue.global.js"></script>
+    <link rel="stylesheet" href="//unpkg.com/element-plus/dist/index.css" />
+    <script src="//unpkg.com/vue@next"></script>
+    <script src="//unpkg.com/element-plus"></script>
     <link rel="stylesheet" href="<?php $this->options->themeUrl('dist/css/main.css'); ?>">
     <link rel="stylesheet" href="<?php $this->options->themeUrl('dist/css/style.css'); ?>">
 
@@ -26,18 +28,18 @@
     <header>
         <div class="container mx-auto">
 
-                <!--标题-->
-                <div class="flex justify-center flex-col items-center mt-12 dark:text-white">
-                    <div class="text-5xl mb-2.5"> <?php $this->options->title() ?> </div>
-                    <div class="h-px w-4 dark:bg-[#7e7e7e]"></div>
-                    <div class="text-xl pt-2.5 tracking-wider dark:text-[#7e7e7e]"><?php $this->options->description() ?> </div>
+            <!--标题-->
+            <div class="flex justify-center flex-col items-center mt-12 dark:text-white">
+                <div class="text-5xl mb-2.5"> <?php $this->options->title() ?> </div>
+                <div class="h-px w-4 dark:bg-[#7e7e7e]"></div>
+                <div class="text-xl pt-2.5 tracking-wider dark:text-[#7e7e7e]"><?php $this->options->description() ?> </div>
 
-                
+
                 <!--搜索-->
                 <form id="search" method="post" action="<?php $this->options->siteUrl(); ?>" role="search" class="w-1/3 mt-10">
-                
-                        <input type="text" id="s" name="s"  placeholder="<?php _e('输入关键字搜索'); ?>" class="rounded-full h-14 w-full pl-4 dark:bg-[#1e1e1e] dark:border-2 dark:border-[#282829]"/>
-          
+
+                    <input type="text" id="s" name="s" placeholder="<?php _e('输入关键字搜索'); ?>" class="rounded-full h-14 w-full pl-4 dark:bg-[#1e1e1e] dark:border-2 dark:border-[#282829]" />
+
                 </form>
 
                 <!--导航-->
@@ -76,7 +78,7 @@
                                 <!--拥有子类-->
                                 <li class="group">
                                     <a class="p-5 no-underline" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><?php $categorys->name(); ?> <span class="iconify inline -mx-2" data-icon="ic:baseline-arrow-drop-down" data-width="28"></span></a>
-                                    <ul class="hidden group-hover:block" >
+                                    <ul class="hidden group-hover:block">
                                         <!--输出-->
                                         <?php foreach ($children as $mid) { ?>
                                             <?php $child = $categorys->getCategory($mid); ?>
@@ -91,8 +93,7 @@
                 </ul>
                 <!--end .nav .nav-pills-->
 
-        </div>
+            </div>
     </header><!-- end #header -->
     <div>
         <div class="container mx-auto">
-      
