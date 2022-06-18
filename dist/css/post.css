@@ -1,0 +1,47 @@
+h2 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: bold;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+}
+h2:before {
+  content: "# ";
+  color: #3185ff;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: bold;
+}
+h3:before {
+  content: "# ";
+  color: #3185ff;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: bold;
+}
+h4:before {
+  content: "# ";
+  color: #3185ff;
+  font-weight: bold;
+}
+
+h5, h6 {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: bold;
+}
+h5:before, h6:before {
+  content: "# ";
+  color: #3185ff;
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=post.css.map */
