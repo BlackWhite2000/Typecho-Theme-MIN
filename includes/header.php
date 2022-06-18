@@ -13,12 +13,12 @@
                 'author'   => _t('%s 发布的文章')
             ], '', ' - '); ?><?php $this->options->title(); ?></title>
     <!-- 使用url函数转换相关路径 -->
-    <!-- <link rel="stylesheet" href="//unpkg.com/element-plus/dist/index.css" /> -->
+    <link rel="stylesheet" href="//unpkg.com/element-plus/dist/index.css" />
     <link rel="stylesheet" href="<?php $this->options->themeUrl('dist/css/main.css'); ?>">
     <link rel="stylesheet" href="<?php $this->options->themeUrl('dist/css/style.css'); ?>">
+    <script src="//unpkg.com/vue@next"></script>
+    <script src="//unpkg.com/element-plus"></script>
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
-    <!-- <script src="//unpkg.com/vue@next"></script> -->
-    <!-- <script src="//unpkg.com/element-plus"></script> -->
 
     <!-- 通过自有函数输出HTML头部信息 -->
     <?php $this->header(); ?>
