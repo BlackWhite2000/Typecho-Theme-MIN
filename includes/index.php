@@ -7,10 +7,10 @@ $this->need('includes/header.php');
     <!--最新文章-->
     <div id="new-posts">
         <div class="dark:text-white text-2xl">
-           {{ postsZh }}
+        最新文章
         </div>
         <div class="dark:text-[#999999] text-lg font-light">
-        {{ postsEn }}
+        -NEW
         </div>
 
     </div>
@@ -67,18 +67,6 @@ $this->need('includes/header.php');
 
 </div>
 
-<script>
-const newPosts = {
-    data() {
-      return {
-        postsZh: '最新文章',
-        postsEn: '-NEW',
-      }
-    }
-  }
-  
-  Vue.createApp(newPosts).mount('#new-posts')
-</script>
 
 
 <script>
