@@ -1,14 +1,47 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <?php $this->need('includes/header.php'); ?>
 
-<div class="col-mb-12 col-8" id="main" role="main">
-    <h3 class="text-white"><?php $this->archiveTitle([
-            'category' => _t('分类 %s 下的文章'),
-            'search'   => _t('包含关键字 %s 的文章'),
-            'tag'      => _t('标签 %s 下的文章'),
-            'author'   => _t('%s 发布的文章')
-        ], '', ''); ?></h3>
+<!--标题-->
+<div class="flex justify-between justify-items-center">
+    <!--最新文章-->
+    <div id="new-posts">
+        <div class="dark:text-white text-2xl">
+        <?php $this->archiveTitle([
+            'category' => _t('%s'),
+            'search'   => _t('%s'),
+            'tag'      => _t('%s'),
+            'author'   => _t('%s')
+        ], '', ''); ?>
+        </div>
+        <div class="dark:text-[#999999] text-lg font-light">
+        <?php $this->archiveTitle([
+            'category' => _t('-分类'),
+            'search'   => _t('-关键字'),
+            'tag'      => _t('-标签'),
+            'author'   => _t('-发布者')
+        ], '', ''); ?>
+        </div>
+
+    </div>
+  
+    <!--分页-->
+    <div>
+        <div class="dark:text-[#999999] text-lg font-light text-right">
+            分页
+        </div>
+        <div class="dark:text-white text-lg text-right">
+            <?php $this->pageLink('<span class="iconify-inline inline" data-icon="ic:baseline-double-arrow" data-width="22" data-flip="horizontal"></span>'); ?>
+            <?php if ($this->_currentPage > 1) echo $this->_currentPage;
+            else echo 1; ?> / <?php echo ceil($this->getTotal() / $this->parameter->pageSize); ?>
+            <?php $this->pageLink('<span class="iconify-inline inline" data-icon="ic:baseline-double-arrow" data-width="22"></span>', 'next'); ?>
+        </div>
+    </div>
+
+</div>
+
+<!--end 标题-->
     <?php if ($this->have()): ?>
+<div class="grid gap-2 mt-5 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
         <?php while ($this->next()): ?>
             <div class="bg-[#141414] rounded-md <?php if (($this->fields->banner) !== '') : ?>bg-center bg-no-repeat bg-contain bg-cover <?php endif; ?>" <?php if (($this->fields->banner) !== '') : ?>style="background-image: url(<?php echo $this->fields->banner; ?>);<?php endif; ?>">
             <article itemscope itemtype="http://schema.org/BlogPosting" class="bg-[#141414] p-5 bg-opacity-75 h-full flex flex-col justify-between ">
@@ -35,12 +68,10 @@
         </div>
         <?php endwhile; ?>
     <?php else: ?>
-        <article class="post">
-            <h2 class="text-white">没有找到内容</h2>
-        </article>
+    
+            <h2 class="text-white text-center">没有找到内容</h2>
+   
     <?php endif; ?>
-
-    <?php $this->pageNav('&laquo; 前一页', '后一页 &raquo;'); ?>
-</div><!-- end #main -->
+    </div>
 
 <?php $this->need('includes/footer.php'); ?>
